@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="CatModelStoreContainer" CdmEntityContainer="CatEntities">
+    <EntitySetMapping Name="AddressLists">
+      <EntityTypeMapping TypeName="IsTypeOf(CatModel.AddressList)">
+        <MappingFragment StoreEntitySet="T_AddressList">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientInfos">
+      <EntityTypeMapping TypeName="IsTypeOf(CatModel.ClientInfo)">
+        <MappingFragment StoreEntitySet="T_ClientInfo">
+          <ScalarProperty Name="Site" ColumnName="Site" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deliveryss">
+      <EntityTypeMapping TypeName="IsTypeOf(CatModel.Deliverys)">
+        <MappingFragment StoreEntitySet="T_Delivery">
+          <ScalarProperty Name="HScode" ColumnName="HScode" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DDate" ColumnName="DDate" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="IsTypeOf(CatModel.Product)">
+        <MappingFragment StoreEntitySet="T_Product">
+          <ScalarProperty Name="Process" ColumnName="Process" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(CatModel.User)">
+        <MappingFragment StoreEntitySet="ST_User">
+          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produces">
+      <EntityTypeMapping TypeName="IsTypeOf(CatModel.Produce)">
+        <MappingFragment StoreEntitySet="T_Produce">
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="IsEnd" ColumnName="IsEnd" />
+          <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK_T_ProduceInfo_T_ClientInfo" TypeName="CatModel.FK_T_ProduceInfo_T_ClientInfo" StoreEntitySet="T_Produce">
+      <EndProperty Name="T_Produce">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <EndProperty Name="ClientInfo">
+        <ScalarProperty Name="Id" ColumnName="ClientId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="ProSchedules">
+      <EntityTypeMapping TypeName="IsTypeOf(CatModel.ProSchedule)">
+        <MappingFragment StoreEntitySet="T_ProSchedule">
+          <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Date" ColumnName="SDate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produce_Products">
+      <EntityTypeMapping TypeName="IsTypeOf(CatModel.Produce_Product)">
+        <MappingFragment StoreEntitySet="T_Produce_Product">
+          <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
+          <ScalarProperty Name="ModelPrice" ColumnName="ModelPrice" />
+          <ScalarProperty Name="Qualityer" ColumnName="Qualityer" />
+          <ScalarProperty Name="DelivDateFact" ColumnName="DelivDateFact" />
+          <ScalarProperty Name="DelivDateCust" ColumnName="DelivDateCust" />
+          <ScalarProperty Name="IsEnd" ColumnName="IsEnd" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientPriceMoney" ColumnName="ClientPriceMoney" />
+          <ScalarProperty Name="FactoryPrice" ColumnName="FactoryPrice" />
+          <ScalarProperty Name="ClientPrice" ColumnName="ClientPrice" />
+          <ScalarProperty Name="FactoryOrderDate" ColumnName="FactoryOrderDate" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="DrawingId" ColumnName="DrawingId" />
+          <ScalarProperty Name="Material" ColumnName="Material" />
+          <ScalarProperty Name="RemainAmount" ColumnName="RemainAmount" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK_T_Produce_Product_T_Produce" TypeName="CatModel.FK_T_Produce_Product_T_Produce" StoreEntitySet="T_Produce_Product">
+      <EndProperty Name="T_Produce_Product">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <EndProperty Name="Produce">
+        <ScalarProperty Name="Id" ColumnName="ProduceId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_Produce_Product_T_Product" TypeName="CatModel.FK_T_Produce_Product_T_Product" StoreEntitySet="T_Produce_Product">
+      <EndProperty Name="T_Produce_Product">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <EndProperty Name="Product">
+        <ScalarProperty Name="Id" ColumnName="ProductId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Factorys">
+      <EntityTypeMapping TypeName="IsTypeOf(CatModel.Factory)">
+        <MappingFragment StoreEntitySet="T_Factory">
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Moneys">
+      <EntityTypeMapping TypeName="IsTypeOf(CatModel.Money)">
+        <MappingFragment StoreEntitySet="T_Money">
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Mark" ColumnName="Mark" />
+          <ScalarProperty Name="Proportion" ColumnName="Proportion" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="IsTypeOf(CatModel.Contact)">
+        <MappingFragment StoreEntitySet="T_Contact">
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="MailAddress" ColumnName="MailAddress" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK_T_Contact_T_ClientInfo" TypeName="CatModel.FK_T_Contact_T_ClientInfo" StoreEntitySet="T_Contact">
+      <EndProperty Name="T_Contact">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <EndProperty Name="ClientInfo">
+        <ScalarProperty Name="Id" ColumnName="ClientId" />
+      </EndProperty>
+      <Condition ColumnName="ClientId" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_Produce_Product_T_Factory1" TypeName="CatModel.FK_T_Produce_Product_T_Factory1" StoreEntitySet="T_Produce_Product">
+      <EndProperty Name="Produce_Product">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <EndProperty Name="Factory">
+        <ScalarProperty Name="Id" ColumnName="FactroyId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_Delivery_T_Produce_Product1" TypeName="CatModel.FK_T_Delivery_T_Produce_Product1" StoreEntitySet="T_Delivery">
+      <EndProperty Name="Deliverys">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <EndProperty Name="Produce_Product">
+        <ScalarProperty Name="Id" ColumnName="PPtId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_ProSchedule_T_Produce_Product" TypeName="CatModel.FK_T_ProSchedule_T_Produce_Product" StoreEntitySet="T_ProSchedule">
+      <EndProperty Name="ProSchedule">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <EndProperty Name="Produce_Product">
+        <ScalarProperty Name="Id" ColumnName="PPtId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_T_Contact_T_Factory" TypeName="CatModel.FK_T_Contact_T_Factory" StoreEntitySet="T_Contact">
+      <EndProperty Name="Contact">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <EndProperty Name="Factory">
+        <ScalarProperty Name="Id" ColumnName="FactId" />
+      </EndProperty>
+      <Condition ColumnName="FactId" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

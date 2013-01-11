@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CatModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+  <EntityContainer Name="CatEntities">
+    <EntitySet Name="AddressLists" EntityType="CatModel.AddressList" />
+    <EntitySet Name="ClientInfos" EntityType="CatModel.ClientInfo" />
+    <EntitySet Name="Deliveryss" EntityType="CatModel.Deliverys" />
+    <EntitySet Name="Products" EntityType="CatModel.Product" />
+    <EntitySet Name="Users" EntityType="CatModel.User" />
+    <EntitySet Name="Produces" EntityType="CatModel.Produce" />
+    <AssociationSet Name="FK_T_ProduceInfo_T_ClientInfo" Association="CatModel.FK_T_ProduceInfo_T_ClientInfo">
+      <End Role="ClientInfo" EntitySet="ClientInfos" />
+      <End Role="T_Produce" EntitySet="Produces" />
+    </AssociationSet>
+    <EntitySet Name="ProSchedules" EntityType="CatModel.ProSchedule" />
+    <EntitySet Name="Produce_Products" EntityType="CatModel.Produce_Product" />
+    <AssociationSet Name="FK_T_Produce_Product_T_Produce" Association="CatModel.FK_T_Produce_Product_T_Produce">
+      <End Role="Produce" EntitySet="Produces" />
+      <End Role="T_Produce_Product" EntitySet="Produce_Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Produce_Product_T_Product" Association="CatModel.FK_T_Produce_Product_T_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="T_Produce_Product" EntitySet="Produce_Products" />
+    </AssociationSet>
+    <EntitySet Name="Factorys" EntityType="CatModel.Factory" />
+    <EntitySet Name="Moneys" EntityType="CatModel.Money" />
+    <EntitySet Name="Contacts" EntityType="CatModel.Contact" />
+    <AssociationSet Name="FK_T_Contact_T_ClientInfo" Association="CatModel.FK_T_Contact_T_ClientInfo">
+      <End Role="ClientInfo" EntitySet="ClientInfos" />
+      <End Role="T_Contact" EntitySet="Contacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Produce_Product_T_Factory1" Association="CatModel.FK_T_Produce_Product_T_Factory1">
+      <End Role="Factory" EntitySet="Factorys" />
+      <End Role="Produce_Product" EntitySet="Produce_Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Delivery_T_Produce_Product1" Association="CatModel.FK_T_Delivery_T_Produce_Product1">
+      <End Role="Produce_Product" EntitySet="Produce_Products" />
+      <End Role="Deliverys" EntitySet="Deliveryss" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ProSchedule_T_Produce_Product" Association="CatModel.FK_T_ProSchedule_T_Produce_Product">
+      <End Role="Produce_Product" EntitySet="Produce_Products" />
+      <End Role="ProSchedule" EntitySet="ProSchedules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Contact_T_Factory" Association="CatModel.FK_T_Contact_T_Factory">
+      <End Role="Factory" EntitySet="Factorys" />
+      <End Role="Contact" EntitySet="Contacts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AddressList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ClientInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" />
+    <Property Name="ModifiedAt" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="ToProduce" Relationship="CatModel.FK_T_ProduceInfo_T_ClientInfo" FromRole="ClientInfo" ToRole="T_Produce" />
+    <Property Name="Number" Type="String" Nullable="false" />
+    <Property Name="Contact" Type="String" Nullable="true" />
+    <Property Name="Mail" Type="String" Nullable="true" />
+    <Property Name="Phone" Type="String" Nullable="true" />
+    <Property Name="Address" Type="String" Nullable="true" />
+    <NavigationProperty Name="ToContact" Relationship="CatModel.FK_T_Contact_T_ClientInfo" FromRole="ClientInfo" ToRole="T_Contact" />
+    <Property Name="Site" Type="String" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Deliverys">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="DDate" Type="DateTime" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" />
+    <Property Name="ModifiedAt" Type="DateTime" Nullable="false" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <Property Name="Invoice" Type="String" Nullable="true">
+      <Documentation>
+        <LongDescription>发票</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Name="HScode" Type="String" Nullable="true" />
+    <NavigationProperty Name="ToProduce_Product" Relationship="CatModel.FK_T_Delivery_T_Produce_Product1" FromRole="Deliverys" ToRole="Produce_Product" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" />
+    <Property Name="ModifiedAt" Type="DateTime" Nullable="false" />
+    <Property Name="Number" Type="String" Nullable="false" />
+    <NavigationProperty Name="ToProduce_Product" Relationship="CatModel.FK_T_Produce_Product_T_Product" FromRole="Product" ToRole="T_Produce_Product" />
+    <Property Name="Process" Type="String" Nullable="true" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="LoginName" Type="String" Nullable="false" />
+    <Property Name="PassWord" Type="String" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Produce">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Remark" Type="String" Nullable="true" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" />
+    <Property Name="ModifiedAt" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="ToClientInfo" Relationship="CatModel.FK_T_ProduceInfo_T_ClientInfo" FromRole="T_Produce" ToRole="ClientInfo" />
+    <Property Name="IsEnd" Type="Boolean" Nullable="false" />
+    <Property Name="Number" Type="String" Nullable="false" />
+    <NavigationProperty Name="ToProduce_Product" Relationship="CatModel.FK_T_Produce_Product_T_Produce" FromRole="Produce" ToRole="T_Produce_Product" />
+  </EntityType>
+  <Association Name="FK_T_ProduceInfo_T_ClientInfo">
+    <End Type="CatModel.ClientInfo" Role="ClientInfo" Multiplicity="1" />
+    <End Type="CatModel.Produce" Role="T_Produce" Multiplicity="*" />
+  </Association>
+  <EntityType Name="ProSchedule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" />
+    <Property Name="Remark" Type="String" Nullable="true" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" />
+    <Property Name="ModifiedAt" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="ToProduce_Product" Relationship="CatModel.FK_T_ProSchedule_T_Produce_Product" FromRole="ProSchedule" ToRole="Produce_Product" />
+  </EntityType>
+  <EntityType Name="Produce_Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <Property Name="RemainAmount" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ToProduce" Relationship="CatModel.FK_T_Produce_Product_T_Produce" FromRole="T_Produce_Product" ToRole="Produce" />
+    <NavigationProperty Name="ToProduct" Relationship="CatModel.FK_T_Produce_Product_T_Product" FromRole="T_Produce_Product" ToRole="Product" />
+    <Property Name="Material" Type="String" Nullable="true" />
+    <Property Name="DrawingId" Type="String" Nullable="true" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" />
+    <Property Name="FactoryOrderDate" Type="DateTime" Nullable="true" />
+    <Property Name="ClientPrice" Type="Decimal" Nullable="true" />
+    <Property Name="FactoryPrice" Type="Decimal" Nullable="true" />
+    <Property Name="ClientPriceMoney" Type="Int32" Nullable="true" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ToFactory" Relationship="CatModel.FK_T_Produce_Product_T_Factory1" FromRole="Produce_Product" ToRole="Factory" />
+    <NavigationProperty Name="ToDelivery" Relationship="CatModel.FK_T_Delivery_T_Produce_Product1" FromRole="Produce_Product" ToRole="Deliverys" />
+    <NavigationProperty Name="ToProSchedule" Relationship="CatModel.FK_T_ProSchedule_T_Produce_Product" FromRole="Produce_Product" ToRole="ProSchedule" />
+    <Property Name="IsEnd" Type="Boolean" Nullable="false" />
+    <Property Name="DelivDateCust" Type="DateTime" Nullable="true" />
+    <Property Name="DelivDateFact" Type="DateTime" Nullable="true" />
+    <Property Name="Qualityer" Type="String" Nullable="true" />
+    <Property Name="ModelPrice" Type="Decimal" Nullable="false" />
+    <Property Name="ExchangeRate" Type="Decimal" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_T_Produce_Product_T_Produce">
+    <End Type="CatModel.Produce" Role="Produce" Multiplicity="1" />
+    <End Type="CatModel.Produce_Product" Role="T_Produce_Product" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_T_Produce_Product_T_Product">
+    <End Type="CatModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="CatModel.Produce_Product" Role="T_Produce_Product" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Factory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Address" Type="String" Nullable="true" />
+    <Property Name="Contact" Type="String" Nullable="true" />
+    <Property Name="Phone" Type="String" Nullable="true" />
+    <Property Name="Fax" Type="String" Nullable="true" />
+    <Property Name="Phone2" Type="String" Nullable="true" />
+    <NavigationProperty Name="ToProduce_Product" Relationship="CatModel.FK_T_Produce_Product_T_Factory1" FromRole="Factory" ToRole="Produce_Product" />
+    <NavigationProperty Name="ToContact" Relationship="CatModel.FK_T_Contact_T_Factory" FromRole="Factory" ToRole="Contact" />
+  </EntityType>
+  <EntityType Name="Money">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Proportion" Type="Decimal" Nullable="false">
+      <Documentation>
+        <LongDescription>货币换算比例</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Name="Mark" Type="String" Nullable="false" />
+    <Property Name="ShortName" Type="String" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Phone" Type="String" Nullable="true" />
+    <Property Name="MailAddress" Type="String" Nullable="true" />
+    <Property Name="Address" Type="String" Nullable="true" />
+    <NavigationProperty Name="ToClientInfo" Relationship="CatModel.FK_T_Contact_T_ClientInfo" FromRole="T_Contact" ToRole="ClientInfo" />
+    <NavigationProperty Name="ToFactory" Relationship="CatModel.FK_T_Contact_T_Factory" FromRole="Contact" ToRole="Factory" />
+  </EntityType>
+  <Association Name="FK_T_Contact_T_ClientInfo">
+    <End Type="CatModel.ClientInfo" Role="ClientInfo" Multiplicity="0..1" />
+    <End Type="CatModel.Contact" Role="T_Contact" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_T_Produce_Product_T_Factory1">
+    <End Type="CatModel.Factory" Role="Factory" Multiplicity="1" />
+    <End Type="CatModel.Produce_Product" Role="Produce_Product" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_T_Delivery_T_Produce_Product1">
+    <End Type="CatModel.Produce_Product" Role="Produce_Product" Multiplicity="1" />
+    <End Type="CatModel.Deliverys" Role="Deliverys" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_T_ProSchedule_T_Produce_Product">
+    <End Type="CatModel.Produce_Product" Role="Produce_Product" Multiplicity="1" />
+    <End Type="CatModel.ProSchedule" Role="ProSchedule" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_T_Contact_T_Factory">
+    <End Type="CatModel.Factory" Role="Factory" Multiplicity="0..1" />
+    <End Type="CatModel.Contact" Role="Contact" Multiplicity="*" />
+  </Association>
+</Schema>

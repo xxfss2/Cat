@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4BF50DE3-FCC5-494E-96F9-82989BDE1E51}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cat.Produce.EF</RootNamespace>
+    <AssemblyName>Cat.Produce.EF</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Jiuzh.CoreBase">
+      <HintPath>..\lib\Jiuzh.CoreBase.dll</HintPath>
+    </Reference>
+    <Reference Include="Jiuzh.EFBase">
+      <HintPath>..\lib\Jiuzh.EFBase.dll</HintPath>
+    </Reference>
+    <Reference Include="Jiuzh.Infrastructure.EnterpriseLibrary">
+      <HintPath>..\lib\Jiuzh.Infrastructure.EnterpriseLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Database\ConnectionString.cs" />
+    <Compile Include="Database\Database.cs" />
+    <Compile Include="Database\DatabaseFactory.cs" />
+    <Compile Include="Database\IConnectionString.cs" />
+    <Compile Include="Database\IDatabase.cs" />
+    <Compile Include="Database\IDatabaseFactory.cs" />
+    <Compile Include="Database\UnitOfWork.cs" />
+    <Compile Include="DomainObjects\AddressList.cs" />
+    <Compile Include="DomainObjects\ClientInfo.cs" />
+    <Compile Include="DomainObjects\Contact.cs" />
+    <Compile Include="DomainObjects\Deliverys.cs" />
+    <Compile Include="DomainObjects\DomainObjectFactory.cs" />
+    <Compile Include="DomainObjects\Factory.cs" />
+    <Compile Include="DomainObjects\Money.cs" />
+    <Compile Include="DomainObjects\Produce.cs" />
+    <Compile Include="DomainObjects\Produce_Product.cs" />
+    <Compile Include="DomainObjects\Product.cs" />
+    <Compile Include="DomainObjects\ProSchedule.cs" />
+    <Compile Include="DomainObjects\User.cs" />
+    <Compile Include="DomainObjects\_Produce.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Produce.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AddressListRepository.cs" />
+    <Compile Include="Repository\BaseRepository.cs" />
+    <Compile Include="Repository\ClientInfoRepository.cs" />
+    <Compile Include="Repository\ContactRepository.cs" />
+    <Compile Include="Repository\DeliverysRepository.cs" />
+    <Compile Include="Repository\FactoryRepository.cs" />
+    <Compile Include="Repository\MoneyRepository.cs" />
+    <Compile Include="Repository\ProduceInfoRepository.cs" />
+    <Compile Include="Repository\Produce_ProductRepository.cs" />
+    <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\ProScheduleRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Service\AddressListService.cs" />
+    <Compile Include="Service\ClientInfoService.cs" />
+    <Compile Include="Service\ContactService.cs" />
+    <Compile Include="Service\DeliverysService.cs" />
+    <Compile Include="Service\FactoryService.cs" />
+    <Compile Include="Service\ProduceInfoService.cs" />
+    <Compile Include="Service\Produce_ProductService.cs" />
+    <Compile Include="Service\ProductService.cs" />
+    <Compile Include="Service\ProScheduleService.cs" />
+    <Compile Include="Service\UserService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="DomainObjects\_Produce.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>_Produce.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cat.Produce.Core\Cat.Produce.Core.csproj">
+      <Project>{FC540FE9-F279-4C34-A5C5-914E692F4262}</Project>
+      <Name>Cat.Produce.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\xxf.Core\Xxf.Core.csproj">
+      <Project>{77A90EBB-90F2-4CF6-9393-AD1B0D221914}</Project>
+      <Name>Xxf.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\xxf.Extension\Xxf.Extension.csproj">
+      <Project>{D02E4A9C-76D7-4A46-8273-026F4BE4B33B}</Project>
+      <Name>Xxf.Extension</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Cache\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

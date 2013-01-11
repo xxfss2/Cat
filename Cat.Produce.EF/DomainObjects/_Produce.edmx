@@ -1,0 +1,694 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CatModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="CatModelStoreContainer">
+          <EntitySet Name="ST_User" EntityType="CatModel.Store.ST_User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_AddressList" EntityType="CatModel.Store.T_AddressList" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_ClientInfo" EntityType="CatModel.Store.T_ClientInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_Contact" EntityType="CatModel.Store.T_Contact" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_Delivery" EntityType="CatModel.Store.T_Delivery" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_Factory" EntityType="CatModel.Store.T_Factory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_Money" EntityType="CatModel.Store.T_Money" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_Produce" EntityType="CatModel.Store.T_Produce" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_Produce_Product" EntityType="CatModel.Store.T_Produce_Product" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_Product" EntityType="CatModel.Store.T_Product" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_ProSchedule" EntityType="CatModel.Store.T_ProSchedule" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_T_Contact_T_ClientInfo" Association="CatModel.Store.FK_T_Contact_T_ClientInfo">
+            <End Role="T_ClientInfo" EntitySet="T_ClientInfo" />
+            <End Role="T_Contact" EntitySet="T_Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Contact_T_Factory" Association="CatModel.Store.FK_T_Contact_T_Factory">
+            <End Role="T_Factory" EntitySet="T_Factory" />
+            <End Role="T_Contact" EntitySet="T_Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Delivery_T_Produce_Product" Association="CatModel.Store.FK_T_Delivery_T_Produce_Product">
+            <End Role="T_Produce_Product" EntitySet="T_Produce_Product" />
+            <End Role="T_Delivery" EntitySet="T_Delivery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Produce_Product_T_Factory" Association="CatModel.Store.FK_T_Produce_Product_T_Factory">
+            <End Role="T_Factory" EntitySet="T_Factory" />
+            <End Role="T_Produce_Product" EntitySet="T_Produce_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Produce_T_ClientInfo" Association="CatModel.Store.FK_T_Produce_T_ClientInfo">
+            <End Role="T_ClientInfo" EntitySet="T_ClientInfo" />
+            <End Role="T_Produce" EntitySet="T_Produce" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_ProSchedule_T_Produce_Product" Association="CatModel.Store.FK_T_ProSchedule_T_Produce_Product">
+            <End Role="T_Produce_Product" EntitySet="T_Produce_Product" />
+            <End Role="T_ProSchedule" EntitySet="T_ProSchedule" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ST_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="LoginName" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="PassWord" Type="varchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="T_AddressList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="T_ClientInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="char" Nullable="false" MaxLength="10" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedAt" Type="datetime" Nullable="false" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="Site" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="T_Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ClientId" Type="int" />
+          <Property Name="FactId" Type="int" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="MailAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="T_Delivery">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PPtId" Type="int" Nullable="false" />
+          <Property Name="DDate" Type="datetime" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Invoice" Type="nvarchar" MaxLength="50" />
+          <Property Name="HScode" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedAt" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Factory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="20" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Fax" Type="varchar" MaxLength="20" />
+          <Property Name="Phone2" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="T_Money">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="Proportion" Type="decimal" Nullable="false" Precision="9" Scale="6" />
+          <Property Name="Mark" Type="nvarchar" Nullable="false" MaxLength="1" />
+          <Property Name="ShortName" Type="nvarchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="T_Produce">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="char" Nullable="false" MaxLength="10" />
+          <Property Name="ClientId" Type="int" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsEnd" Type="bit" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedAt" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Produce_Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProduceId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="RemainAmount" Type="int" Nullable="false" />
+          <Property Name="Material" Type="nvarchar" MaxLength="50" />
+          <Property Name="DrawingId" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderDate" Type="datetime" Nullable="false" />
+          <Property Name="FactoryOrderDate" Type="datetime" />
+          <Property Name="FactroyId" Type="int" Nullable="false" />
+          <Property Name="ClientPrice" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="FactoryPrice" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="ClientPriceMoney" Type="int" />
+          <Property Name="IsEnd" Type="bit" Nullable="false" />
+          <Property Name="DelivDateFact" Type="datetime" />
+          <Property Name="DelivDateCust" Type="datetime" />
+          <Property Name="Qualityer" Type="varchar" MaxLength="20" />
+          <Property Name="ModelPrice" Type="decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="ExchangeRate" Type="decimal" Nullable="false" Precision="9" Scale="2" />
+        </EntityType>
+        <EntityType Name="T_Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="char" Nullable="false" MaxLength="10" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Process" Type="varchar" MaxLength="50" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedAt" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_ProSchedule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PPtId" Type="int" Nullable="false" />
+          <Property Name="SDate" Type="datetime" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedAt" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_T_Contact_T_ClientInfo">
+          <End Role="T_ClientInfo" Type="CatModel.Store.T_ClientInfo" Multiplicity="0..1" />
+          <End Role="T_Contact" Type="CatModel.Store.T_Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ClientInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_Contact">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Contact_T_Factory">
+          <End Role="T_Factory" Type="CatModel.Store.T_Factory" Multiplicity="0..1" />
+          <End Role="T_Contact" Type="CatModel.Store.T_Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Factory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_Contact">
+              <PropertyRef Name="FactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Delivery_T_Produce_Product">
+          <End Role="T_Produce_Product" Type="CatModel.Store.T_Produce_Product" Multiplicity="1" />
+          <End Role="T_Delivery" Type="CatModel.Store.T_Delivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Produce_Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_Delivery">
+              <PropertyRef Name="PPtId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Produce_Product_T_Factory">
+          <End Role="T_Factory" Type="CatModel.Store.T_Factory" Multiplicity="1" />
+          <End Role="T_Produce_Product" Type="CatModel.Store.T_Produce_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Factory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_Produce_Product">
+              <PropertyRef Name="FactroyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Produce_T_ClientInfo">
+          <End Role="T_ClientInfo" Type="CatModel.Store.T_ClientInfo" Multiplicity="1" />
+          <End Role="T_Produce" Type="CatModel.Store.T_Produce" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ClientInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_Produce">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_ProSchedule_T_Produce_Product">
+          <End Role="T_Produce_Product" Type="CatModel.Store.T_Produce_Product" Multiplicity="1" />
+          <End Role="T_ProSchedule" Type="CatModel.Store.T_ProSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Produce_Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="T_ProSchedule">
+              <PropertyRef Name="PPtId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CatModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CatEntities">
+          <EntitySet Name="AddressLists" EntityType="CatModel.AddressList" />
+          <EntitySet Name="ClientInfos" EntityType="CatModel.ClientInfo" />
+          <EntitySet Name="Deliveryss" EntityType="CatModel.Deliverys" />
+          <EntitySet Name="Products" EntityType="CatModel.Product" />
+          <EntitySet Name="Users" EntityType="CatModel.User" />
+          <EntitySet Name="Produces" EntityType="CatModel.Produce" />
+          <AssociationSet Name="FK_T_ProduceInfo_T_ClientInfo" Association="CatModel.FK_T_ProduceInfo_T_ClientInfo">
+            <End Role="ClientInfo" EntitySet="ClientInfos" />
+            <End Role="T_Produce" EntitySet="Produces" /></AssociationSet>
+          <EntitySet Name="ProSchedules" EntityType="CatModel.ProSchedule" />
+          <EntitySet Name="Produce_Products" EntityType="CatModel.Produce_Product" />
+          <AssociationSet Name="FK_T_Produce_Product_T_Produce" Association="CatModel.FK_T_Produce_Product_T_Produce">
+            <End Role="Produce" EntitySet="Produces" />
+            <End Role="T_Produce_Product" EntitySet="Produce_Products" /></AssociationSet>
+          <AssociationSet Name="FK_T_Produce_Product_T_Product" Association="CatModel.FK_T_Produce_Product_T_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="T_Produce_Product" EntitySet="Produce_Products" /></AssociationSet>
+          <EntitySet Name="Factorys" EntityType="CatModel.Factory" />
+          <EntitySet Name="Moneys" EntityType="CatModel.Money" />
+          <EntitySet Name="Contacts" EntityType="CatModel.Contact" />
+          <AssociationSet Name="FK_T_Contact_T_ClientInfo" Association="CatModel.FK_T_Contact_T_ClientInfo">
+            <End Role="ClientInfo" EntitySet="ClientInfos" />
+            <End Role="T_Contact" EntitySet="Contacts" /></AssociationSet>
+          <AssociationSet Name="FK_T_Produce_Product_T_Factory1" Association="CatModel.FK_T_Produce_Product_T_Factory1">
+            <End Role="Factory" EntitySet="Factorys" />
+            <End Role="Produce_Product" EntitySet="Produce_Products" /></AssociationSet>
+          <AssociationSet Name="FK_T_Delivery_T_Produce_Product1" Association="CatModel.FK_T_Delivery_T_Produce_Product1">
+            <End Role="Produce_Product" EntitySet="Produce_Products" />
+            <End Role="Deliverys" EntitySet="Deliveryss" /></AssociationSet>
+          <AssociationSet Name="FK_T_ProSchedule_T_Produce_Product" Association="CatModel.FK_T_ProSchedule_T_Produce_Product">
+            <End Role="Produce_Product" EntitySet="Produce_Products" />
+            <End Role="ProSchedule" EntitySet="ProSchedules" /></AssociationSet>
+          <AssociationSet Name="FK_T_Contact_T_Factory" Association="CatModel.FK_T_Contact_T_Factory">
+            <End Role="Factory" EntitySet="Factorys" />
+            <End Role="Contact" EntitySet="Contacts" /></AssociationSet></EntityContainer>
+        <EntityType Name="AddressList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ClientInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" />
+          <Property Name="ModifiedAt" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="ToProduce" Relationship="CatModel.FK_T_ProduceInfo_T_ClientInfo" FromRole="ClientInfo" ToRole="T_Produce" />
+          <Property Name="Number" Type="String" Nullable="false" />
+          <Property Name="Contact" Type="String" Nullable="true" />
+          <Property Name="Mail" Type="String" Nullable="true" />
+          <Property Name="Phone" Type="String" Nullable="true" />
+          <Property Name="Address" Type="String" Nullable="true" />
+          <NavigationProperty Name="ToContact" Relationship="CatModel.FK_T_Contact_T_ClientInfo" FromRole="ClientInfo" ToRole="T_Contact" />
+          <Property Name="Site" Type="String" Nullable="true" /></EntityType>
+        <EntityType Name="Deliverys">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="DDate" Type="DateTime" Nullable="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" />
+          <Property Name="ModifiedAt" Type="DateTime" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="Invoice" Type="String" Nullable="true">
+            <Documentation>
+              <LongDescription>发票</LongDescription></Documentation></Property>
+          <Property Name="HScode" Type="String" Nullable="true" />
+          <NavigationProperty Name="ToProduce_Product" Relationship="CatModel.FK_T_Delivery_T_Produce_Product1" FromRole="Deliverys" ToRole="Produce_Product" /></EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" />
+          <Property Name="ModifiedAt" Type="DateTime" Nullable="false" />
+          <Property Name="Number" Type="String" Nullable="false" />
+          <NavigationProperty Name="ToProduce_Product" Relationship="CatModel.FK_T_Produce_Product_T_Product" FromRole="Product" ToRole="T_Produce_Product" />
+          <Property Name="Process" Type="String" Nullable="true" /></EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" /></Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="LoginName" Type="String" Nullable="false" />
+          <Property Name="PassWord" Type="String" Nullable="false" /></EntityType>
+        <EntityType Name="Produce">
+          <Key>
+            <PropertyRef Name="Id" /></Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Remark" Type="String" Nullable="true" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" />
+          <Property Name="ModifiedAt" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="ToClientInfo" Relationship="CatModel.FK_T_ProduceInfo_T_ClientInfo" FromRole="T_Produce" ToRole="ClientInfo" />
+          <Property Name="IsEnd" Type="Boolean" Nullable="false" />
+          <Property Name="Number" Type="String" Nullable="false" />
+          <NavigationProperty Name="ToProduce_Product" Relationship="CatModel.FK_T_Produce_Product_T_Produce" FromRole="Produce" ToRole="T_Produce_Product" /></EntityType>
+        <Association Name="FK_T_ProduceInfo_T_ClientInfo">
+          <End Type="CatModel.ClientInfo" Role="ClientInfo" Multiplicity="1" />
+          <End Type="CatModel.Produce" Role="T_Produce" Multiplicity="*" /></Association>
+        <EntityType Name="ProSchedule">
+          <Key>
+            <PropertyRef Name="Id" /></Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Remark" Type="String" Nullable="true" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" />
+          <Property Name="ModifiedAt" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="ToProduce_Product" Relationship="CatModel.FK_T_ProSchedule_T_Produce_Product" FromRole="ProSchedule" ToRole="Produce_Product" /></EntityType>
+        <EntityType Name="Produce_Product">
+          <Key>
+            <PropertyRef Name="Id" /></Key>
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="RemainAmount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ToProduce" Relationship="CatModel.FK_T_Produce_Product_T_Produce" FromRole="T_Produce_Product" ToRole="Produce" />
+          <NavigationProperty Name="ToProduct" Relationship="CatModel.FK_T_Produce_Product_T_Product" FromRole="T_Produce_Product" ToRole="Product" />
+          <Property Name="Material" Type="String" Nullable="true" />
+          <Property Name="DrawingId" Type="String" Nullable="true" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" />
+          <Property Name="FactoryOrderDate" Type="DateTime" Nullable="true" />
+          <Property Name="ClientPrice" Type="Decimal" Nullable="true" />
+          <Property Name="FactoryPrice" Type="Decimal" Nullable="true" />
+          <Property Name="ClientPriceMoney" Type="Int32" Nullable="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ToFactory" Relationship="CatModel.FK_T_Produce_Product_T_Factory1" FromRole="Produce_Product" ToRole="Factory" />
+          <NavigationProperty Name="ToDelivery" Relationship="CatModel.FK_T_Delivery_T_Produce_Product1" FromRole="Produce_Product" ToRole="Deliverys" />
+          <NavigationProperty Name="ToProSchedule" Relationship="CatModel.FK_T_ProSchedule_T_Produce_Product" FromRole="Produce_Product" ToRole="ProSchedule" />
+          <Property Name="IsEnd" Type="Boolean" Nullable="false" />
+          <Property Name="DelivDateCust" Type="DateTime" Nullable="true" />
+          <Property Name="DelivDateFact" Type="DateTime" Nullable="true" />
+          <Property Name="Qualityer" Type="String" Nullable="true" />
+          <Property Name="ModelPrice" Type="Decimal" Nullable="false" />
+          <Property Name="ExchangeRate" Type="Decimal" Nullable="false" /></EntityType>
+        <Association Name="FK_T_Produce_Product_T_Produce">
+          <End Type="CatModel.Produce" Role="Produce" Multiplicity="1" />
+          <End Type="CatModel.Produce_Product" Role="T_Produce_Product" Multiplicity="*" />
+          </Association>
+        <Association Name="FK_T_Produce_Product_T_Product">
+          <End Type="CatModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="CatModel.Produce_Product" Role="T_Produce_Product" Multiplicity="*" />
+          </Association>
+        <EntityType Name="Factory">
+          <Key>
+            <PropertyRef Name="Id" /></Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="true" />
+          <Property Name="Contact" Type="String" Nullable="true" />
+          <Property Name="Phone" Type="String" Nullable="true" />
+          <Property Name="Fax" Type="String" Nullable="true" />
+          <Property Name="Phone2" Type="String" Nullable="true" />
+          <NavigationProperty Name="ToProduce_Product" Relationship="CatModel.FK_T_Produce_Product_T_Factory1" FromRole="Factory" ToRole="Produce_Product" />
+          <NavigationProperty Name="ToContact" Relationship="CatModel.FK_T_Contact_T_Factory" FromRole="Factory" ToRole="Contact" /></EntityType>
+        <EntityType Name="Money">
+          <Key>
+            <PropertyRef Name="Id" /></Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Proportion" Type="Decimal" Nullable="false">
+            <Documentation>
+              <LongDescription>货币换算比例</LongDescription></Documentation></Property>
+          <Property Name="Mark" Type="String" Nullable="false" />
+          <Property Name="ShortName" Type="String" Nullable="false" /></EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" /></Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Phone" Type="String" Nullable="true" />
+          <Property Name="MailAddress" Type="String" Nullable="true" />
+          <Property Name="Address" Type="String" Nullable="true" />
+          <NavigationProperty Name="ToClientInfo" Relationship="CatModel.FK_T_Contact_T_ClientInfo" FromRole="T_Contact" ToRole="ClientInfo" />
+          <NavigationProperty Name="ToFactory" Relationship="CatModel.FK_T_Contact_T_Factory" FromRole="Contact" ToRole="Factory" /></EntityType>
+        <Association Name="FK_T_Contact_T_ClientInfo">
+          <End Type="CatModel.ClientInfo" Role="ClientInfo" Multiplicity="0..1" />
+          <End Type="CatModel.Contact" Role="T_Contact" Multiplicity="*" /></Association>
+        <Association Name="FK_T_Produce_Product_T_Factory1">
+          <End Type="CatModel.Factory" Role="Factory" Multiplicity="1" />
+          <End Type="CatModel.Produce_Product" Role="Produce_Product" Multiplicity="*" /></Association>
+        <Association Name="FK_T_Delivery_T_Produce_Product1">
+          <End Type="CatModel.Produce_Product" Role="Produce_Product" Multiplicity="1" />
+          <End Type="CatModel.Deliverys" Role="Deliverys" Multiplicity="*" /></Association>
+        <Association Name="FK_T_ProSchedule_T_Produce_Product">
+          <End Type="CatModel.Produce_Product" Role="Produce_Product" Multiplicity="1" />
+          <End Type="CatModel.ProSchedule" Role="ProSchedule" Multiplicity="*" /></Association>
+        <Association Name="FK_T_Contact_T_Factory">
+          <End Type="CatModel.Factory" Role="Factory" Multiplicity="0..1" />
+          <End Type="CatModel.Contact" Role="Contact" Multiplicity="*" /></Association></Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CatModelStoreContainer" CdmEntityContainer="CatEntities">
+          <EntitySetMapping Name="AddressLists">
+            <EntityTypeMapping TypeName="IsTypeOf(CatModel.AddressList)">
+              <MappingFragment StoreEntitySet="T_AddressList">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientInfos">
+            <EntityTypeMapping TypeName="IsTypeOf(CatModel.ClientInfo)">
+              <MappingFragment StoreEntitySet="T_ClientInfo">
+                <ScalarProperty Name="Site" ColumnName="Site" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Deliveryss">
+            <EntityTypeMapping TypeName="IsTypeOf(CatModel.Deliverys)">
+              <MappingFragment StoreEntitySet="T_Delivery">
+                <ScalarProperty Name="HScode" ColumnName="HScode" />
+                <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DDate" ColumnName="DDate" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="IsTypeOf(CatModel.Product)">
+              <MappingFragment StoreEntitySet="T_Product">
+                <ScalarProperty Name="Process" ColumnName="Process" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="IsTypeOf(CatModel.User)">
+              <MappingFragment StoreEntitySet="ST_User">
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Produces">
+            <EntityTypeMapping TypeName="IsTypeOf(CatModel.Produce)">
+              <MappingFragment StoreEntitySet="T_Produce">
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="IsEnd" ColumnName="IsEnd" />
+                <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Id" ColumnName="Id" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="FK_T_ProduceInfo_T_ClientInfo" TypeName="CatModel.FK_T_ProduceInfo_T_ClientInfo" StoreEntitySet="T_Produce">
+            <EndProperty Name="T_Produce">
+              <ScalarProperty Name="Id" ColumnName="Id" /></EndProperty>
+            <EndProperty Name="ClientInfo">
+              <ScalarProperty Name="Id" ColumnName="ClientId" /></EndProperty></AssociationSetMapping>
+          <EntitySetMapping Name="ProSchedules">
+            <EntityTypeMapping TypeName="IsTypeOf(CatModel.ProSchedule)">
+              <MappingFragment StoreEntitySet="T_ProSchedule">
+                <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Date" ColumnName="SDate" />
+                <ScalarProperty Name="Id" ColumnName="Id" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Produce_Products">
+            <EntityTypeMapping TypeName="IsTypeOf(CatModel.Produce_Product)">
+              <MappingFragment StoreEntitySet="T_Produce_Product">
+                <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
+                <ScalarProperty Name="ModelPrice" ColumnName="ModelPrice" />
+                <ScalarProperty Name="Qualityer" ColumnName="Qualityer" />
+                <ScalarProperty Name="DelivDateFact" ColumnName="DelivDateFact" />
+                <ScalarProperty Name="DelivDateCust" ColumnName="DelivDateCust" />
+                <ScalarProperty Name="IsEnd" ColumnName="IsEnd" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClientPriceMoney" ColumnName="ClientPriceMoney" />
+                <ScalarProperty Name="FactoryPrice" ColumnName="FactoryPrice" />
+                <ScalarProperty Name="ClientPrice" ColumnName="ClientPrice" />
+                <ScalarProperty Name="FactoryOrderDate" ColumnName="FactoryOrderDate" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="DrawingId" ColumnName="DrawingId" />
+                <ScalarProperty Name="Material" ColumnName="Material" />
+                <ScalarProperty Name="RemainAmount" ColumnName="RemainAmount" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="FK_T_Produce_Product_T_Produce" TypeName="CatModel.FK_T_Produce_Product_T_Produce" StoreEntitySet="T_Produce_Product">
+            <EndProperty Name="T_Produce_Product">
+              <ScalarProperty Name="Id" ColumnName="Id" /></EndProperty>
+            <EndProperty Name="Produce">
+              <ScalarProperty Name="Id" ColumnName="ProduceId" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_T_Produce_Product_T_Product" TypeName="CatModel.FK_T_Produce_Product_T_Product" StoreEntitySet="T_Produce_Product">
+            <EndProperty Name="T_Produce_Product">
+              <ScalarProperty Name="Id" ColumnName="Id" /></EndProperty>
+            <EndProperty Name="Product">
+              <ScalarProperty Name="Id" ColumnName="ProductId" /></EndProperty></AssociationSetMapping>
+          <EntitySetMapping Name="Factorys">
+            <EntityTypeMapping TypeName="IsTypeOf(CatModel.Factory)">
+              <MappingFragment StoreEntitySet="T_Factory">
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Moneys">
+            <EntityTypeMapping TypeName="IsTypeOf(CatModel.Money)">
+              <MappingFragment StoreEntitySet="T_Money">
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="Mark" ColumnName="Mark" />
+                <ScalarProperty Name="Proportion" ColumnName="Proportion" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="IsTypeOf(CatModel.Contact)">
+              <MappingFragment StoreEntitySet="T_Contact">
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="MailAddress" ColumnName="MailAddress" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="FK_T_Contact_T_ClientInfo" TypeName="CatModel.FK_T_Contact_T_ClientInfo" StoreEntitySet="T_Contact">
+            <EndProperty Name="T_Contact">
+              <ScalarProperty Name="Id" ColumnName="Id" /></EndProperty>
+            <EndProperty Name="ClientInfo">
+              <ScalarProperty Name="Id" ColumnName="ClientId" /></EndProperty>
+            <Condition ColumnName="ClientId" IsNull="false" /></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_T_Produce_Product_T_Factory1" TypeName="CatModel.FK_T_Produce_Product_T_Factory1" StoreEntitySet="T_Produce_Product">
+            <EndProperty Name="Produce_Product">
+              <ScalarProperty Name="Id" ColumnName="Id" /></EndProperty>
+            <EndProperty Name="Factory">
+              <ScalarProperty Name="Id" ColumnName="FactroyId" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_T_Delivery_T_Produce_Product1" TypeName="CatModel.FK_T_Delivery_T_Produce_Product1" StoreEntitySet="T_Delivery">
+            <EndProperty Name="Deliverys">
+              <ScalarProperty Name="Id" ColumnName="Id" /></EndProperty>
+            <EndProperty Name="Produce_Product">
+              <ScalarProperty Name="Id" ColumnName="PPtId" /></EndProperty>
+            </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_T_ProSchedule_T_Produce_Product" TypeName="CatModel.FK_T_ProSchedule_T_Produce_Product" StoreEntitySet="T_ProSchedule">
+            <EndProperty Name="ProSchedule">
+              <ScalarProperty Name="Id" ColumnName="Id" /></EndProperty>
+            <EndProperty Name="Produce_Product">
+              <ScalarProperty Name="Id" ColumnName="PPtId" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_T_Contact_T_Factory" TypeName="CatModel.FK_T_Contact_T_Factory" StoreEntitySet="T_Contact">
+            <EndProperty Name="Contact">
+              <ScalarProperty Name="Id" ColumnName="Id" /></EndProperty>
+            <EndProperty Name="Factory">
+              <ScalarProperty Name="Id" ColumnName="FactId" /></EndProperty>
+            <Condition ColumnName="FactId" IsNull="false" /></AssociationSetMapping></EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <DesignerInfoPropertySet xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="CopyToOutputDirectory" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="_Produce" xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+        <EntityTypeShape EntityType="CatModel.AddressList" Width="1.5" PointX="9.25" PointY="1.25" Height="1.2849739583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatModel.ClientInfo" Width="1.5" PointX="3.375" PointY="0.5" Height="3.1397916666666661" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatModel.Deliverys" Width="1.5" PointX="11.5" PointY="4.875" Height="2.8025520833333326" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatModel.Product" Width="1.5" PointX="5.875" PointY="3.625" Height="2.1280729166666665" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatModel.User" Width="1.5" PointX="5.75" PointY="1.125" Height="1.622213541666667" />
+        <EntityTypeShape EntityType="CatModel.Produce" Width="1.5" PointX="3.125" PointY="4.375" Height="2.4653124999999996" />
+        <AssociationConnector Association="CatModel.FK_T_ProduceInfo_T_ClientInfo">
+          <ConnectorPoint PointX="4" PointY="3.6397916666666661" />
+          <ConnectorPoint PointX="4" PointY="4.375" /></AssociationConnector>
+        <EntityTypeShape EntityType="CatModel.ProSchedule" Width="1.5" PointX="5.875" PointY="6.875" Height="2.2966927083333335" />
+        <EntityTypeShape EntityType="CatModel.Produce_Product" Width="1.75" PointX="8.5" PointY="4.125" Height="4.1515104166666656" IsExpanded="true" />
+        <AssociationConnector Association="CatModel.FK_T_Produce_Product_T_Produce">
+          <ConnectorPoint PointX="4.625" PointY="6.3279427083333335" />
+          <ConnectorPoint PointX="8.5" PointY="6.3279427083333335" />
+          </AssociationConnector>
+        <AssociationConnector Association="CatModel.FK_T_Produce_Product_T_Product">
+          <ConnectorPoint PointX="7.375" PointY="4.9390364583333337" />
+          <ConnectorPoint PointX="8.5" PointY="4.9390364583333337" /></AssociationConnector>
+        <EntityTypeShape EntityType="CatModel.Factory" Width="1.5" PointX="8.625" PointY="9.375" Height="2.2966927083333317" />
+        <EntityTypeShape EntityType="CatModel.Money" Width="1.5" PointX="7.5" PointY="1" Height="1.7908333333333326" />
+        <EntityTypeShape EntityType="CatModel.Contact" Width="1.5" PointX="0.625" PointY="1.25" Height="2.1280729166666661" IsExpanded="true" />
+        <AssociationConnector Association="CatModel.FK_T_Contact_T_ClientInfo">
+          <ConnectorPoint PointX="3.375" PointY="2.3140364583333328" />
+          <ConnectorPoint PointX="2.125" PointY="2.3140364583333328" />
+          </AssociationConnector>
+        <AssociationConnector Association="CatModel.FK_T_Produce_Product_T_Factory1">
+          <ConnectorPoint PointX="9.375" PointY="9.375" />
+          <ConnectorPoint PointX="9.375" PointY="8.2765104166666656" /></AssociationConnector>
+        <AssociationConnector Association="CatModel.FK_T_Delivery_T_Produce_Product1">
+          <ConnectorPoint PointX="10.25" PointY="6.1919661458333328" />
+          <ConnectorPoint PointX="11.5" PointY="6.1919661458333328" /></AssociationConnector>
+        <AssociationConnector Association="CatModel.FK_T_ProSchedule_T_Produce_Product">
+          <ConnectorPoint PointX="8.5" PointY="7.5757552083333328" />
+          <ConnectorPoint PointX="7.375" PointY="7.5757552083333328" /></AssociationConnector>
+        <AssociationConnector Association="CatModel.FK_T_Contact_T_Factory">
+          <ConnectorPoint PointX="8.625" PointY="10.60765625" />
+          <ConnectorPoint PointX="1.375" PointY="10.60765625" />
+          <ConnectorPoint PointX="1.375" PointY="3.3780729166666661" /></AssociationConnector></Diagram></edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

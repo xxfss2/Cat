@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CatModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+  <EntityContainer Name="CatModelStoreContainer">
+    <EntitySet Name="ST_User" EntityType="CatModel.Store.ST_User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="T_AddressList" EntityType="CatModel.Store.T_AddressList" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="T_ClientInfo" EntityType="CatModel.Store.T_ClientInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="T_Contact" EntityType="CatModel.Store.T_Contact" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="T_Delivery" EntityType="CatModel.Store.T_Delivery" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="T_Factory" EntityType="CatModel.Store.T_Factory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="T_Money" EntityType="CatModel.Store.T_Money" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="T_Produce" EntityType="CatModel.Store.T_Produce" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="T_Produce_Product" EntityType="CatModel.Store.T_Produce_Product" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="T_Product" EntityType="CatModel.Store.T_Product" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="T_ProSchedule" EntityType="CatModel.Store.T_ProSchedule" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_T_Contact_T_ClientInfo" Association="CatModel.Store.FK_T_Contact_T_ClientInfo">
+      <End Role="T_ClientInfo" EntitySet="T_ClientInfo" />
+      <End Role="T_Contact" EntitySet="T_Contact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Contact_T_Factory" Association="CatModel.Store.FK_T_Contact_T_Factory">
+      <End Role="T_Factory" EntitySet="T_Factory" />
+      <End Role="T_Contact" EntitySet="T_Contact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Delivery_T_Produce_Product" Association="CatModel.Store.FK_T_Delivery_T_Produce_Product">
+      <End Role="T_Produce_Product" EntitySet="T_Produce_Product" />
+      <End Role="T_Delivery" EntitySet="T_Delivery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Produce_Product_T_Factory" Association="CatModel.Store.FK_T_Produce_Product_T_Factory">
+      <End Role="T_Factory" EntitySet="T_Factory" />
+      <End Role="T_Produce_Product" EntitySet="T_Produce_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Produce_T_ClientInfo" Association="CatModel.Store.FK_T_Produce_T_ClientInfo">
+      <End Role="T_ClientInfo" EntitySet="T_ClientInfo" />
+      <End Role="T_Produce" EntitySet="T_Produce" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ProSchedule_T_Produce_Product" Association="CatModel.Store.FK_T_ProSchedule_T_Produce_Product">
+      <End Role="T_Produce_Product" EntitySet="T_Produce_Product" />
+      <End Role="T_ProSchedule" EntitySet="T_ProSchedule" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ST_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LoginName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="PassWord" Type="varchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="T_AddressList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="T_ClientInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Address" Type="nvarchar" MaxLength="100" />
+    <Property Name="Contact" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Mail" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModifiedAt" Type="datetime" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="Number" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Site" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="ClientId" Type="int" />
+    <Property Name="FactId" Type="int" />
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MailAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="T_Delivery">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="DDate" Type="datetime" Nullable="false" />
+    <Property Name="HScode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Invoice" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModifiedAt" Type="datetime" Nullable="false" />
+    <Property Name="PPtId" Type="int" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Factory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Address" Type="nvarchar" MaxLength="100" />
+    <Property Name="Contact" Type="nvarchar" MaxLength="20" />
+    <Property Name="Fax" Type="varchar" MaxLength="20" />
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="Phone2" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="T_Money">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Mark" Type="nvarchar" Nullable="false" MaxLength="1" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="Proportion" Type="decimal" Nullable="false" Precision="9" Scale="6" />
+    <Property Name="ShortName" Type="nvarchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="T_Produce">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IsEnd" Type="bit" Nullable="false" />
+    <Property Name="ModifiedAt" Type="datetime" Nullable="false" />
+    <Property Name="Number" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Produce_Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="ClientPrice" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="ClientPriceMoney" Type="int" />
+    <Property Name="DelivDateCust" Type="datetime" />
+    <Property Name="DelivDateFact" Type="datetime" />
+    <Property Name="DrawingId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExchangeRate" Type="decimal" Nullable="false" Precision="9" Scale="2" />
+    <Property Name="FactoryOrderDate" Type="datetime" />
+    <Property Name="FactoryPrice" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="FactroyId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IsEnd" Type="bit" Nullable="false" />
+    <Property Name="Material" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModelPrice" Type="decimal" Nullable="false" Precision="9" Scale="2" />
+    <Property Name="OrderDate" Type="datetime" Nullable="false" />
+    <Property Name="ProduceId" Type="int" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="Qualityer" Type="varchar" MaxLength="20" />
+    <Property Name="RemainAmount" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ModifiedAt" Type="datetime" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Number" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="Process" Type="varchar" MaxLength="50" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_ProSchedule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ModifiedAt" Type="datetime" Nullable="false" />
+    <Property Name="PPtId" Type="int" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+    <Property Name="SDate" Type="datetime" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_T_Contact_T_ClientInfo">
+    <End Role="T_ClientInfo" Type="CatModel.Store.T_ClientInfo" Multiplicity="0..1" />
+    <End Role="T_Contact" Type="CatModel.Store.T_Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_ClientInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="T_Contact">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Contact_T_Factory">
+    <End Role="T_Factory" Type="CatModel.Store.T_Factory" Multiplicity="0..1" />
+    <End Role="T_Contact" Type="CatModel.Store.T_Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Factory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="T_Contact">
+        <PropertyRef Name="FactId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Delivery_T_Produce_Product">
+    <End Role="T_Produce_Product" Type="CatModel.Store.T_Produce_Product" Multiplicity="1" />
+    <End Role="T_Delivery" Type="CatModel.Store.T_Delivery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Produce_Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="T_Delivery">
+        <PropertyRef Name="PPtId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Produce_Product_T_Factory">
+    <End Role="T_Factory" Type="CatModel.Store.T_Factory" Multiplicity="1" />
+    <End Role="T_Produce_Product" Type="CatModel.Store.T_Produce_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Factory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="T_Produce_Product">
+        <PropertyRef Name="FactroyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Produce_T_ClientInfo">
+    <End Role="T_ClientInfo" Type="CatModel.Store.T_ClientInfo" Multiplicity="1" />
+    <End Role="T_Produce" Type="CatModel.Store.T_Produce" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_ClientInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="T_Produce">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ProSchedule_T_Produce_Product">
+    <End Role="T_Produce_Product" Type="CatModel.Store.T_Produce_Product" Multiplicity="1" />
+    <End Role="T_ProSchedule" Type="CatModel.Store.T_ProSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Produce_Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="T_ProSchedule">
+        <PropertyRef Name="PPtId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

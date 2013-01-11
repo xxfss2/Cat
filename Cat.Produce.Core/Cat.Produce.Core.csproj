@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FC540FE9-F279-4C34-A5C5-914E692F4262}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cat.Produce.Core</RootNamespace>
+    <AssemblyName>Cat.Produce.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Jiuzh.CoreBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Jiuzh.CoreBase.dll</HintPath>
+    </Reference>
+    <Reference Include="Jiuzh.EFBase, Version=1.2.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Jiuzh.EFBase.dll</HintPath>
+    </Reference>
+    <Reference Include="Jiuzh.Infrastructure.EnterpriseLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Jiuzh.Infrastructure.EnterpriseLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DomainObjects\IAddressList.cs" />
+    <Compile Include="DomainObjects\IClientInfo.cs" />
+    <Compile Include="DomainObjects\IContact.cs" />
+    <Compile Include="DomainObjects\IDeliverys.cs" />
+    <Compile Include="DomainObjects\IDomainObjectFactory.cs" />
+    <Compile Include="DomainObjects\IFactory.cs" />
+    <Compile Include="DomainObjects\IMoney.cs" />
+    <Compile Include="DomainObjects\IProduce.cs" />
+    <Compile Include="DomainObjects\IProduce_Product.cs" />
+    <Compile Include="DomainObjects\IProduct.cs" />
+    <Compile Include="DomainObjects\IProSchedule.cs" />
+    <Compile Include="DomainObjects\IUser.cs" />
+    <Compile Include="DomainObjects\Struct\Add_Produce_ProudctInfo.cs" />
+    <Compile Include="DomainObjects\View\View_Produce_Product.cs" />
+    <Compile Include="DomainObjects\View\View_PPtSelect.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IAddressListRepository.cs" />
+    <Compile Include="Repository\IClientInfoRepository.cs" />
+    <Compile Include="Repository\IContactRepository.cs" />
+    <Compile Include="Repository\IDeliverysRepository.cs" />
+    <Compile Include="Repository\IFactoryRepository.cs" />
+    <Compile Include="Repository\IMoneyRepository.cs" />
+    <Compile Include="Repository\IProduceInfoRepository.cs" />
+    <Compile Include="Repository\IProduce_ProductRepository.cs" />
+    <Compile Include="Repository\IProductRepository.cs" />
+    <Compile Include="Repository\IProScheduleRepository.cs" />
+    <Compile Include="Repository\IUserRepository.cs" />
+    <Compile Include="Service\IAddressListService.cs" />
+    <Compile Include="Service\IClientInfoService.cs" />
+    <Compile Include="Service\IContactService.cs" />
+    <Compile Include="Service\IDeliverysService.cs" />
+    <Compile Include="Service\IFactoryService.cs" />
+    <Compile Include="Service\IProduceInfoService.cs" />
+    <Compile Include="Service\IProduce_ProductService.cs" />
+    <Compile Include="Service\IProductService.cs" />
+    <Compile Include="Service\IProScheduleService.cs" />
+    <Compile Include="Service\IUserService.cs" />
+    <Compile Include="_Enum\Enums.cs" />
+    <Compile Include="_Infrastructure\RegisterUCF.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\xxf.Core\Xxf.Core.csproj">
+      <Project>{77A90EBB-90F2-4CF6-9393-AD1B0D221914}</Project>
+      <Name>Xxf.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Cache\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

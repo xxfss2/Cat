@@ -1,0 +1,627 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0567DF12-BEAA-457A-844D-A35121AD69A3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProduceManage</RootNamespace>
+    <AssemblyName>ProduceManage</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Fangliangcn\Common\Common\bin\Debug\Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Jiuzh.CoreBase, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Jiuzh.CoreBase.dll</HintPath>
+    </Reference>
+    <Reference Include="Jiuzh.EFBase, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Jiuzh.EFBase.dll</HintPath>
+    </Reference>
+    <Reference Include="Jiuzh.Infrastructure.EnterpriseLibrary, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Jiuzh.Infrastructure.EnterpriseLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\PigRangeland\web\web\bin\Microsoft.Practices.EnterpriseLibrary.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\PigRangeland\web\web\bin\Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching.Database, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\PigRangeland\web\web\bin\Microsoft.Practices.EnterpriseLibrary.Caching.Database.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\PigRangeland\web\web\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\PigRangeland\web\web\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\PigRangeland\web\web\bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\PigRangeland\web\web\bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\PigRangeland\web\web\bin\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.PolicyInjection, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\PigRangeland\web\web\bin\Microsoft.Practices.EnterpriseLibrary.PolicyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Security.Cryptography, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\PigRangeland\web\web\bin\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\PigRangeland\web\web\bin\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\PigRangeland\web\web\bin\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\PigRangeland\web\web\bin\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\PigRangeland\web\web\bin\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\PigRangeland\web\web\bin\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Xxf.Web.UI">
+      <HintPath>..\..\Jiuzh.Core\Jiuzh.Web.UI\bin\Debug\Xxf.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Xxf.Web.UI.Control">
+      <HintPath>..\..\Jiuzh.Core\Xxf.Web.UI.Control\bin\Debug\Xxf.Web.UI.Control.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="Pages\Produce\ProduceProduct.ascx" />
+    <Content Include="Pages\_js\cat.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Control\BaseButton.ascx.cs">
+      <DependentUpon>BaseButton.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Control\BaseButton.ascx.designer.cs">
+      <DependentUpon>BaseButton.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Control\PageBreak.ascx.cs">
+      <DependentUpon>PageBreak.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Control\PageBreak.ascx.designer.cs">
+      <DependentUpon>PageBreak.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Control\Post.ascx.cs">
+      <DependentUpon>Post.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Control\Post.ascx.designer.cs">
+      <DependentUpon>Post.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Customer\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Customer\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Customer\Detail.aspx.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Customer\Detail.aspx.designer.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Customer\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Customer\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Contact\AddContact.aspx.cs">
+      <DependentUpon>AddContact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Contact\AddContact.aspx.designer.cs">
+      <DependentUpon>AddContact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Delivery\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Delivery\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Delivery\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Delivery\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Factory\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Factory\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Factory\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Factory\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Produce\Delivery_Add.aspx.cs">
+      <DependentUpon>Delivery_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Produce\Delivery_Add.aspx.designer.cs">
+      <DependentUpon>Delivery_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Produce\Detail.aspx.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Produce\Detail.aspx.designer.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Produce\HistroyList.aspx.cs">
+      <DependentUpon>HistroyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Produce\HistroyList.aspx.designer.cs">
+      <DependentUpon>HistroyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Produce\CurrList.aspx.cs">
+      <DependentUpon>CurrList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Produce\CurrList.aspx.designer.cs">
+      <DependentUpon>CurrList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Produce\ProduceProduct.ascx.cs">
+      <DependentUpon>ProduceProduct.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Produce\ProduceProduct.ascx.designer.cs">
+      <DependentUpon>ProduceProduct.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Produce\Produce_Product_Add.aspx.cs">
+      <DependentUpon>Produce_Product_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Produce\Produce_Product_Add.aspx.designer.cs">
+      <DependentUpon>Produce_Product_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Produce\Produce_Product_List.aspx.cs">
+      <DependentUpon>Produce_Product_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Produce\Produce_Product_List.aspx.designer.cs">
+      <DependentUpon>Produce_Product_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Produce\Schedule_Add.aspx.cs">
+      <DependentUpon>Schedule_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Produce\Schedule_Add.aspx.designer.cs">
+      <DependentUpon>Schedule_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Produce\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Produce\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Produce\Produce_Product_Detail.aspx.cs">
+      <DependentUpon>Produce_Product_Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Produce\Produce_Product_Detail.aspx.designer.cs">
+      <DependentUpon>Produce_Product_Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Produce\Remind.aspx.cs">
+      <DependentUpon>Remind.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Produce\Remind.aspx.designer.cs">
+      <DependentUpon>Remind.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Product\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Product\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Product\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Product\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Select\Produce.aspx.cs">
+      <DependentUpon>Produce.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Select\Produce.aspx.designer.cs">
+      <DependentUpon>Produce.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Right.aspx.cs">
+      <DependentUpon>Right.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Right.aspx.designer.cs">
+      <DependentUpon>Right.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admintitle.html" />
+    <Content Include="admin_top.html" />
+    <Content Include="Config\unity\unity.di.Produce.infrastructure.config" />
+    <Content Include="Global.asax" />
+    <Content Include="images\!.gif" />
+    <Content Include="images\ad.gif" />
+    <Content Include="images\add.gif" />
+    <Content Include="images\back.gif" />
+    <Content Include="images\bg.gif" />
+    <Content Include="images\bigsize.jpg" />
+    <Content Include="images\bootnbg.jpg" />
+    <Content Include="images\bullet.gif" />
+    <Content Include="images\buttom-copy-bg.gif" />
+    <Content Include="images\buttom-left.gif" />
+    <Content Include="images\buttom-right.gif" />
+    <Content Include="images\buttom_bgs.gif" />
+    <Content Include="images\buttom_left2.gif" />
+    <Content Include="images\buttom_right2.gif" />
+    <Content Include="images\card.jpg" />
+    <Content Include="images\check-out_.gif" />
+    <Content Include="images\close.gif" />
+    <Content Include="images\content-bg-line.gif" />
+    <Content Include="images\content-bg.gif" />
+    <Content Include="images\database_import_.gif" />
+    <Content Include="images\DefaultDocs.gif" />
+    <Content Include="images\defind.gif" />
+    <Content Include="images\del.jpg" />
+    <Content Include="images\delete.gif" />
+    <Content Include="images\delete_6.gif" />
+    <Content Include="images\edit.gif" />
+    <Content Include="images\ershou_1.gif" />
+    <Content Include="images\ershou_2.gif" />
+    <Content Include="images\format.gif" />
+    <Content Include="images\css\fox.css" />
+    <Content Include="images\g.gif" />
+    <Content Include="images\gw.gif" />
+    <Content Include="images\gw2.gif" />
+    <Content Include="images\icon-demo.gif" />
+    <Content Include="images\icon-login-seaver.gif" />
+    <Content Include="images\icon-mail2.gif" />
+    <Content Include="images\icon-phone.gif" />
+    <Content Include="images\icon2_004.png" />
+    <Content Include="images\icon2_089.png" />
+    <Content Include="images\icon2_090.png" />
+    <Content Include="images\imagedelete.gif" />
+    <Content Include="images\imageedit.gif" />
+    <Content Include="images\image_%28add%296.gif" />
+    <Content Include="images\image_1.gif" />
+    <Content Include="images\ipsecurity.gif" />
+    <Content Include="images\l1b3.gif" />
+    <Content Include="images\l1b4.gif" />
+    <Content Include="images\l1b5.gif" />
+    <Content Include="images\left-bg.gif" />
+    <Content Include="images\left-top-right.gif" />
+    <Content Include="images\line2.jpg" />
+    <Content Include="images\linkspic3.gif" />
+    <Content Include="images\linkspic6.gif" />
+    <Content Include="images\lm.gif" />
+    <Content Include="images\lminfo.gif" />
+    <Content Include="images\login-buttom-bg.gif" />
+    <Content Include="images\login-content-bg.gif" />
+    <Content Include="images\login-top-bg.gif" />
+    <Content Include="images\login-wel.gif" />
+    <Content Include="images\login_bg.jpg" />
+    <Content Include="images\Login_but.gif" />
+    <Content Include="images\logo.gif" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\luck.gif" />
+    <Content Include="images\mail_leftbg.gif" />
+    <Content Include="images\mail_rightbg.gif" />
+    <Content Include="images\menu_bg.gif" />
+    <Content Include="images\menu_bg1.gif" />
+    <Content Include="images\menu_bg2.gif" />
+    <Content Include="images\menu_bgs.gif" />
+    <Content Include="images\menu_topimg.gif" />
+    <Content Include="images\menu_topline.gif" />
+    <Content Include="images\mime.gif" />
+    <Content Include="images\nav-right-bg.gif" />
+    <Content Include="images\news-title-bg.gif" />
+    <Content Include="images\ok.gif" />
+    <Content Include="images\OK.jpg" />
+    <Content Include="images\out.gif" />
+    <Content Include="images\password.gif" />
+    <Content Include="images\pic1.gif" />
+    <Content Include="images\pic10.gif" />
+    <Content Include="images\pic11.gif" />
+    <Content Include="images\pic12.gif" />
+    <Content Include="images\pic13.gif" />
+    <Content Include="images\pic14.gif" />
+    <Content Include="images\pic15.gif" />
+    <Content Include="images\pic16.gif" />
+    <Content Include="images\pic17.gif" />
+    <Content Include="images\pic18.gif" />
+    <Content Include="images\pic19.gif" />
+    <Content Include="images\pic21.gif" />
+    <Content Include="images\pic22.gif" />
+    <Content Include="images\pic23.gif" />
+    <Content Include="images\pic24.gif" />
+    <Content Include="images\pic25.gif" />
+    <Content Include="images\pic26.gif" />
+    <Content Include="images\pic5.gif" />
+    <Content Include="images\pic6.gif" />
+    <Content Include="images\pic7.gif" />
+    <Content Include="images\pic8.gif" />
+    <Content Include="images\pic9.gif" />
+    <Content Include="images\Redirects.gif" />
+    <Content Include="images\report2_%28add%29.gif" />
+    <Content Include="images\report2_%28delete%29.gif" />
+    <Content Include="images\right_smbg.jpg" />
+    <Content Include="images\servicezhgb2312.gif" />
+    <Content Include="images\set.gif" />
+    <Content Include="images\set2.gif" />
+    <Content Include="images\sitebackup.gif" />
+    <Content Include="images\css\skin.css" />
+    <Content Include="images\smallbg.jpg" />
+    <Content Include="images\st.gif" />
+    <Content Include="images\st.png" />
+    <Content Include="images\stop.gif" />
+    <Content Include="images\str.gif" />
+    <Content Include="images\Submit_bg.gif" />
+    <Content Include="images\t2bg1.gif" />
+    <Content Include="images\t2bg2.gif" />
+    <Content Include="images\t2bg4.gif" />
+    <Content Include="images\t2bg5.gif" />
+    <Content Include="images\title.gif" />
+    <Content Include="images\tj.jpg" />
+    <Content Include="images\to.gif" />
+    <Content Include="images\tool-down-pic.gif" />
+    <Content Include="images\top-right.gif" />
+    <Content Include="images\top_bt.jpg" />
+    <Content Include="images\ts.gif" />
+    <Content Include="images\user-info.gif" />
+    <Content Include="images\usercontrol.gif" />
+    <Content Include="images\vie.gif" />
+    <Content Include="images\X.gif" />
+    <Content Include="images\yc.gif" />
+    <Content Include="images\yx.gif" />
+    <Content Include="index.html" />
+    <Content Include="js\moo.fx.js" />
+    <Content Include="js\moo.fx.pack.js" />
+    <Content Include="js\prototype.lite.js" />
+    <Content Include="left.html" />
+    <Content Include="Pages\Control\BaseButton.ascx" />
+    <Content Include="Pages\Control\PageBreak.ascx" />
+    <Content Include="Pages\Control\Post.ascx" />
+    <Content Include="Pages\Customer\Add.aspx" />
+    <Content Include="Pages\Customer\Detail.aspx" />
+    <Content Include="Pages\Customer\List.aspx" />
+    <Content Include="Pages\Contact\AddContact.aspx" />
+    <Content Include="Pages\Delivery\Add.aspx" />
+    <Content Include="Pages\Delivery\List.aspx" />
+    <Content Include="Pages\Factory\Add.aspx" />
+    <Content Include="Pages\Factory\List.aspx" />
+    <Content Include="Pages\Produce\Add.aspx" />
+    <Content Include="Pages\Produce\Produce_Product_Add.aspx" />
+    <Content Include="Pages\Produce\Produce_Product_List.aspx" />
+    <Content Include="Pages\Produce\Produce_Product_Detail.aspx" />
+    <Content Include="Pages\Produce\Remind.aspx" />
+    <Content Include="Pages\Select\Produce.aspx" />
+    <Content Include="Pages\_DatePicker\calendar.js" />
+    <Content Include="Pages\_DatePicker\config.js" />
+    <Content Include="Pages\_DatePicker\lang\en.js" />
+    <Content Include="Pages\_DatePicker\lang\zh-cn.js" />
+    <Content Include="Pages\_DatePicker\lang\zh-tw.js" />
+    <Content Include="Pages\_DatePicker\My97DatePicker.htm" />
+    <Content Include="Pages\_DatePicker\skin\datePicker.gif" />
+    <Content Include="Pages\_DatePicker\skin\default\datepicker.css" />
+    <Content Include="Pages\_DatePicker\skin\default\img.gif" />
+    <Content Include="Pages\_DatePicker\skin\WdatePicker.css" />
+    <Content Include="Pages\_DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="Pages\_DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="Pages\_DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="Pages\_DatePicker\WdatePicker.js" />
+    <Content Include="Pages\_DatePicker\开发包\lang\en.js" />
+    <Content Include="Pages\_DatePicker\开发包\lang\zh-cn.js" />
+    <Content Include="Pages\_DatePicker\开发包\lang\zh-tw.js" />
+    <Content Include="Pages\_DatePicker\开发包\readme.txt" />
+    <Content Include="Pages\_DatePicker\开发包\skin\datePicker.gif" />
+    <Content Include="Pages\_DatePicker\开发包\skin\default\datepicker.css" />
+    <Content Include="Pages\_DatePicker\开发包\skin\default\img.gif" />
+    <Content Include="Pages\_DatePicker\开发包\skin\WdatePicker.css" />
+    <Content Include="Pages\_DatePicker\开发包\skin\whyGreen\bg.jpg" />
+    <Content Include="Pages\_DatePicker\开发包\skin\whyGreen\datepicker.css" />
+    <Content Include="Pages\_DatePicker\开发包\skin\whyGreen\img.gif" />
+    <Content Include="Pages\Produce\Delivery_Add.aspx" />
+    <Content Include="Pages\Produce\Detail.aspx" />
+    <Content Include="Pages\Produce\HistroyList.aspx" />
+    <Content Include="Pages\Produce\CurrList.aspx" />
+    <Content Include="Pages\Produce\Schedule_Add.aspx" />
+    <Content Include="Pages\Product\Add.aspx" />
+    <Content Include="Pages\Product\List.aspx" />
+    <Content Include="Pages\_css\Common.css" />
+    <Content Include="Pages\_images\001.gif" />
+    <Content Include="Pages\_images\083.gif" />
+    <Content Include="Pages\_images\114.gif" />
+    <Content Include="Pages\_images\bt_bg.gif" />
+    <Content Include="Pages\_images\close.gif" />
+    <Content Include="Pages\_images\go.gif" />
+    <Content Include="Pages\_images\list_img.gif" />
+    <Content Include="Pages\_css\login.css" />
+    <Content Include="Pages\_images\loginout.gif" />
+    <Content Include="Pages\_images\login_03.gif" />
+    <Content Include="Pages\_images\login_05.gif" />
+    <Content Include="Pages\_images\login_09.gif" />
+    <Content Include="Pages\_images\login_11.gif" />
+    <Content Include="Pages\_images\login_13.gif" />
+    <Content Include="Pages\_images\login_16.gif" />
+    <Content Include="Pages\_images\login_18.gif" />
+    <Content Include="Pages\_css\main.css" />
+    <Content Include="Pages\_images\main_02.gif" />
+    <Content Include="Pages\_images\main_04.gif" />
+    <Content Include="Pages\_images\main_07.gif" />
+    <Content Include="Pages\_images\main_09.gif" />
+    <Content Include="Pages\_images\main_10.gif" />
+    <Content Include="Pages\_images\main_12.gif" />
+    <Content Include="Pages\_images\main_14.gif" />
+    <Content Include="Pages\_images\main_19.gif" />
+    <Content Include="Pages\_images\main_21.gif" />
+    <Content Include="Pages\_images\main_bg.gif" />
+    <Content Include="Pages\_images\page_back_1.gif" />
+    <Content Include="Pages\_images\page_first_1.gif" />
+    <Content Include="Pages\_images\page_last.gif" />
+    <Content Include="Pages\_images\page_next.gif" />
+    <Content Include="Pages\_images\system.gif" />
+    <Content Include="Pages\_images\sz.gif" />
+    <Content Include="Pages\_images\user.gif" />
+    <Content Include="Pages\_js\jquery.js" />
+    <Content Include="Pages\_js\jquery_1.3.2.js" />
+    <Content Include="Pages\_js\xxf.js" />
+    <Content Include="Right.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_Data\_Produce.csdl" />
+    <None Include="App_Data\_Produce.msl" />
+    <None Include="App_Data\_Produce.ssdl" />
+    <None Include="images\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cat.Produce.Core\Cat.Produce.Core.csproj">
+      <Project>{FC540FE9-F279-4C34-A5C5-914E692F4262}</Project>
+      <Name>Cat.Produce.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cat.Produce.EF\Cat.Produce.EF.csproj">
+      <Project>{4BF50DE3-FCC5-494E-96F9-82989BDE1E51}</Project>
+      <Name>Cat.Produce.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\xxf.Core\Xxf.Core.csproj">
+      <Project>{77A90EBB-90F2-4CF6-9393-AD1B0D221914}</Project>
+      <Name>Xxf.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xxf.Helper\Xxf.Helper.csproj">
+      <Project>{779071C9-5D7D-4FC9-85B2-C916AA19EC38}</Project>
+      <Name>Xxf.Helper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3256</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

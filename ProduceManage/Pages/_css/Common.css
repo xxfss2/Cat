@@ -1,0 +1,128 @@
+﻿
+body {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-size: 12px;
+	font-family:宋体,"Times New Roman", Times, serif,;
+	background-color :#EEF2FB;
+}
+
+　a:link { text-decoration: none;color: blue}
+　a:visited{ text-decoration:none;color: blue}
+　a:hover { text-decoration:underline;color: red} 
+　a:active { text-decoration:underline;color: red} 
+
+table.grid1{
+   line-height:25px; 
+   text-align:center;
+   border :solid 1px #c9c9c9; 
+ /*  background-color:#c9c9c9; */
+   border-collapse: collapse;
+}
+
+table.grid1 td
+{
+   border :solid 1px #c9c9c9; 
+  /* background-color:#FFFFFF; */
+}
+
+table.grid1 th
+{
+   background-color:#E0E0E0; 
+   border :solid 1px #c9c9c9; 
+}
+
+table.grid1 td.action{
+    color: #0a6e0c;  
+}
+
+table.grid2{
+   line-height:25px; 
+   text-align:center;
+   background-color:#c9c9c9; 
+   border-collapse: collapse;
+}
+
+table.grid2 td{
+   background-color:#FFFFFF; 
+}
+
+table.grid2 th{
+   background-color:#F0F0F0; 
+}
+
+table.grid2 td.action{
+    color: #0a6e0c;  
+}
+
+table.pageBreak2 td{
+    line-height:22px;
+   vertical-align:middle;
+}
+
+div#main {
+	background-color:White;
+	width:800px;
+}
+
+div#title{
+	border-color:Blue ;
+}
+
+div#non {
+	height:10px;
+}
+
+table.mytable
+{
+	width:80%;
+	border-collapse: collapse;
+	border: 1px solid #CFD7E1;
+	line-height:20px;
+}
+
+table.mytable td{
+	border: 1px solid #CFD7E1;
+	background-color :#FFFFFF;
+}
+
+table.mytable td.left{
+	text-align :right ;
+}
+
+div.postdiv
+{
+	text-align :center ;
+	margin-top :5px;
+	width:80%;
+	height :30px;
+	border: 1px solid #CFD7E1;	
+	background-color :#FFFFFF;
+}
+
+.postbt
+{
+	margin-top :2px;
+	line-height :18px;
+	width :60px;
+	vertical-align :middle ;
+	border: 1px solid #1B3243;	
+	background-color :#EEF2FB;
+}
+
+.in3
+{
+    background-color :#f3f3f3;
+}
+
+.in2
+{
+    background-color :#FFFFFF;
+}
+
+table.grid1 th.sort
+{
+    cursor :hand;
+}
+
+.JZac { background-color :#EBEBEB; cursor :default;}
